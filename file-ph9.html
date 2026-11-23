@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#215b3c">
+
+  <meta
+    name="description"
+    content="綠色生活・健康未來：探索健康飲食、環保生活、戶外活動及氣候健康資訊。"
+  >
+
+  <title>綠色生活・健康未來</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --green-dark: #163f2b;
+      --green: #215b3c;
+      --green-medium: #397650;
+      --green-light: #cce6bf;
+      --green-pale: #edf5e9;
+      --cream: #f8f7ef;
+      --white: #ffffff;
+      --text: #29352d;
+      --muted: #526157;
+      --border: #d7e3d4;
+      --focus: #e4a72f;
+      --radius: 16px;
+      --max-width: 1120px;
+      --shadow: 0 10px 28px rgba(27, 65, 41, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family:
+        "Noto Sans TC",
+        "Source Han Sans TC",
+        "Microsoft JhengHei",
+        system-ui,
+        sans-serif;
+      line-height: 1.75;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: var(--green-dark);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      z-index: 100;
+      top: -100px;
+      left: 1rem;
+      padding: 0.6rem 1rem;
+      background: var(--white);
+      color: var(--green-dark);
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* 導覽列 */
+    .site-header {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      min-height: 76px;
+      padding-block: 0.8rem;
+    }
+
+    .logo {
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .site-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.4rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .site-nav a {
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .site-nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+    }
+
+    /* 首頁主視覺 */
+    .hero {
+      display: grid;
+      min-height: 520px;
+      place-items: center;
+      padding: 5rem 1rem;
+      background-color: #dcebd5;
+      background-image:
+        linear-gradient(
+          rgba(20, 55, 35, 0.2),
+          rgba(20, 55, 35, 0.4)
+        ),
+        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2000&q=80");
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .hero-content {
+      width: min(100%, 720px);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-label,
+    .eyebrow {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--green-medium);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: #303a32;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 34rem;
+      margin: 1rem auto 1.5rem;
+      color: var(--text);
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+    }
+
+    .button {
+      display: inline-block;
+      border: 2px solid var(--green-dark);
+      border-radius: 999px;
+      padding: 0.65rem 1.5rem;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 800;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: #b6dba8;
+      transform: translateY(-2px);
+    }
+
+    /* 共用版面 */
+    section {
+      padding-block: 4.5rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 0.6rem;
+      color: var(--green-dark);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.3;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #dcebd5;
+    }
+
+    .card-content {
+      padding: 1.4rem;
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      color: var(--green-dark);
+      font-size: 1.2rem;
+      line-height: 1.4;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* 介紹文章 */
+    .intro-section {
+      background: var(--white);
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: stretch;
+      gap: 2rem;
+    }
+
+    .article-image {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      border-radius: var(--radius);
+      object-fit: cover;
+      background: #dcebd5;
+    }
+
+    .article-copy {
+      align-self: center;
+    }
+
+    .article-copy h3 {
+      margin-top: 0;
+      color: var(--green-dark);
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .article-copy p {
+      color: var(--muted);
+    }
+
+    .article-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 綠色生活好處 */
+    .benefits {
+      background: var(--green-pale);
+    }
+
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      font-weight: 700;
+    }
+
+    .check {
+      color: var(--green-medium);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* 活動 */
+    .activity-image {
+      height: 180px;
+    }
+
+    .activity-card details {
+      margin-top: 1rem;
+    }
+
+    .activity-card summary {
+      color: var(--green-dark);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .activity-card details p {
+      margin-top: 0.65rem;
+    }
+
+    /* 互動清單 */
+    .action-section {
+      background: var(--green-pale);
+    }
+
+    .action-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .progress-panel {
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .progress-panel h3 {
+      margin-top: 0;
+    }
+
+    progress {
+      width: 100%;
+      height: 1rem;
+      accent-color: #b9dfaa;
+    }
+
+    .action-list {
+      display: grid;
+      gap: 0.7rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .action-list label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .action-list input {
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0.25rem 0 0;
+      flex-shrink: 0;
+      accent-color: var(--green);
+    }
+
+    .reset-button {
+      margin-top: 1rem;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: var(--green-dark);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* 資源及聯絡 */
+    .resources-list {
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .resources-list li + li {
+      margin-top: 0.8rem;
+    }
+
+    .contact-section {
+      background: var(--white);
+    }
+
+    .contact-box {
+      border-left: 5px solid var(--green-medium);
+      border-radius: 0 12px 12px 0;
+      padding: 1.2rem 1.5rem;
+      background: var(--green-pale);
+    }
+
+    .contact-box p {
+      margin: 0.4rem 0;
+    }
+
+    /* 頁尾 */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-block: 2rem;
+      background: var(--cream);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* 手機及平板 */
+    @media (max-width: 760px) {
+      .grid,
+      .article-layout,
+      .action-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      .article-image {
+        height: 250px;
+        min-height: 0;
+      }
+
+      section {
+        padding-block: 3.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav ul {
+        gap: 0.4rem 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <!-- 導覽列 -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a class="logo" href="#home" aria-label="綠色生活首頁">
+        🌱 綠色生活
+      </a>
+
+      <nav class="site-nav" aria-label="主要導覽">
+        <ul>
+          <li><a href="#home">首頁</a></li>
+          <li><a href="#green-life">綠色生活</a></li>
+          <li><a href="#activities">最新活動</a></li>
+          <li><a href="#contact">聯絡我們</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 首頁主視覺 -->
+    <div class="hero" id="home">
+      <div class="hero-content">
+        <span class="hero-label">GREEN LIVING · HEALTHY FUTURE</span>
+
+        <h1>綠色生活<br>健康未來</h1>
+
+        <p>
+          從今天開始，以簡單的日常行動，
+          照顧自己，也關愛地球。
+        </p>
+
+        <a class="button" href="#green-life">了解更多</a>
+      </div>
+    </div>
+
+    <!-- 三個主題 -->
+    <section aria-labelledby="topics-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">OUR TOPICS</span>
+          <h2 id="topics-title">探索綠色健康生活</h2>
+          <p>
+            從飲食、生活習慣和戶外活動開始，
+            找到適合自己的綠色生活方式。
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>🍎 健康飲食</h3>
+              <p>
+                選擇多樣化食材，多吃蔬菜、水果、豆類及全穀類，
+                同時按需要購買，減少食物浪費。
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>🌱 環保生活</h3>
+              <p>
+                自備購物袋和水樽，減少即棄用品，
+                善用資源，從小習慣減少浪費。
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="card-image"
+              src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>🚴 戶外運動</h3>
+              <p>
+                因應個人體能，選擇散步、騎單車或其他活動，
+                在安全的環境中享受自然。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 綠色生活介紹 -->
+    <section
+      id="green-life"
+      class="intro-section"
+      aria-labelledby="intro-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">GREEN LIVING</span>
+          <h2 id="intro-title">綠色生活從今天開始</h2>
+          <p>
+            綠色生活並不遙遠，每個人都可以從日常選擇開始。
+          </p>
+        </div>
+
+        <div class="article-layout">
+          <img
+            class="article-image"
+            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+            alt="陽光照進綠色森林"
+            width="1000"
+            height="700"
+            loading="lazy"
+          >
+
+          <article class="article-copy">
+            <h3>讓環保與健康成為生活的一部分</h3>
+
+            <p>
+              我們建立這個網站，希望讓年輕一代和大眾更容易取得
+              綠色生活資訊，認識健康飲食及身心健康的重要性。
+            </p>
+
+            <p>
+              透過清晰、直觀的介面，我們鼓勵大家認識環境保護、
+              減少即棄塑膠，並在可行的情況下選擇較低碳的飲食和交通方式。
+            </p>
+
+            <p>
+              無論是自備餐具、珍惜食物，還是到公園散步，
+              小小的改變都可以成為持續行動的起點。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 綠色生活好處 -->
+    <section class="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">WHY GO GREEN?</span>
+          <h2 id="benefits-title">為甚麼選擇綠色生活？</h2>
+          <p>對自己好一點，也為環境多走一步。</p>
+        </div>
+
+        <ul class="benefit-list">
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>透過均衡飲食及適量活動，支持身體健康</span>
+          </li>
+
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>減少浪費及不必要的污染</span>
+          </li>
+
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>培養良好習慣，改善生活品質</span>
+          </li>
+
+          <li>
+            <span class="check" aria-hidden="true">✓</span>
+            <span>珍惜資源，共同建設可持續未來</span>
+          </li>
+        </ul>
+
+        <p class="small-note">
+          各項行動的效果會因個人情況及實際做法而有所不同。
+        </p>
+      </div>
+    </section>
+
+    <!-- 活動 -->
+    <section id="activities" aria-labelledby="activities-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">COMMUNITY ACTIVITIES</span>
+          <h2 id="activities-title">最新活動</h2>
+          <p>
+            以下為活動內容示例，並非已公布的活動；
+            正式發布時請更新日期、地點及報名資訊。
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card activity-card">
+            <img
+              class="card-image activity-image"
+              src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>🌳 植樹活動</h3>
+              <p>認識樹木與自然生態，參與社區綠化。</p>
+
+              <details>
+                <summary>查看活動介紹</summary>
+                <p>
+                  活動日期、地點和參加方式有待公布。
+                  請以主辦單位的正式公告為準。
+                </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="card activity-card">
+            <img
+              class="card-image activity-image"
+              src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>♻️ 環保工作坊</h3>
+              <p>分享減廢、重用和減塑的實用方法。</p>
+
+              <details>
+                <summary>查看活動介紹</summary>
+                <p>
+                  活動日期、地點和參加方式有待公布。
+                  請以主辦單位的正式公告為準。
+                </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="card activity-card">
+            <img
+              class="card-image activity-image"
+              src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt=""
+              width="800"
+              height="500"
+              loading="lazy"
+            >
+
+            <div class="card-content">
+              <h3>🚶 健康步行日</h3>
+              <p>一起走進社區，在活動中認識健康生活。</p>
+
+              <details>
+                <summary>查看活動介紹</summary>
+                <p>
+                  活動日期、地點和參加方式有待公布。
+                  請以主辦單位的正式公告為準。
+                </p>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <p class="small-note">活動圖片為主題示意圖。</p>
+      </div>
+    </section>
+
+    <!-- 互動清單 -->
+    <section class="action-section" aria-labelledby="action-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">TAKE ACTION</span>
+          <h2 id="action-title">我的綠色生活清單</h2>
+          <p>選擇你已經做到的行動，一步一步建立習慣。</p>
+        </div>
+
+        <div class="action-layout">
+          <div class="progress-panel">
+            <h3>由小事開始</h3>
+
+            <p id="progress-text" aria-live="polite">
+              已完成 0 / 4 項
+            </p>
+
+            <progress
+              id="action-progress"
+              value="0"
+              max="4"
+              aria-label="綠色生活清單完成進度"
+            >
+              0 / 4
+            </progress>
+
+            <p>
+              清單會嘗試儲存在此瀏覽器，不會由本網站程式傳送至伺服器。
+            </p>
+          </div>
+
+          <div>
+            <ul class="action-list">
+              <li>
+                <label>
+                  <input type="checkbox" data-action="bottle">
+                  <span>自備水樽或可重用飲料杯。</span>
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" data-action="bag">
+                  <span>購物時自備環保袋。</span>
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" data-action="food">
+                  <span>按需要購買食材，減少食物浪費。</span>
+                </label>
+              </li>
+
+              <li>
+                <label>
+                  <input type="checkbox" data-action="walking">
+                  <span>
+                    在安全及可行的情況下，選擇步行或公共交通。
+                  </span>
+                </label>
+              </li>
+            </ul>
+
+            <button id="reset-actions" class="reset-button" type="button">
+              清除勾選
+            </button>
+
+            <p id="storage-status" class="small-note" aria-live="polite"></p>
+
+            <noscript>
+              <p class="small-note">
+                請啟用 JavaScript 以使用進度及儲存功能。
+              </p>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 參考資料 -->
+    <section aria-labelledby="resources-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">LEARN MORE</span>
+          <h2 id="resources-title">參考資料</h2>
+          <p>
+            進一步了解氣候變化與健康，請參考世界衞生組織的資料。
+          </p>
+        </div>
+
+        <ul class="resources-list">
+          <li>
+            <a href="https://www.who.int/teams/environment-climate-change-and-health/climate-change-and-health/advocacy-partnerships/talks">
+              氣候變化與健康相關講座（英文）
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.who.int/teams/environment-climate-change-and-health/climate-change-and-health/advocacy-partnerships/talks/health-at-cop31">
+              Health at COP31（英文）
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.who.int/zh/initiatives/alliance-for-transformative-action-on-climate-and-health">
+              氣候與衞生變革行動聯盟（中文）
+            </a>
+          </li>
+        </ul>
+
+        <p class="small-note">
+          請以各機構網站的最新資料為準。本網站內容只供一般教育用途，
+          不代替醫生或註冊營養師的個人建議。
+        </p>
+      </div>
+    </section>
+
+    <!-- 聯絡 -->
+    <section
+      id="contact"
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">CONTACT US</span>
+          <h2 id="contact-title">聯絡我們</h2>
+          <p>歡迎分享綠色生活建議，或與我們交流合作機會。</p>
+        </div>
+
+        <div class="contact-box">
+          <p><strong>聯絡資訊待更新</strong></p>
+          <p>
+            網站管理員可在正式發布前，在此加入真實電郵地址、
+            社交媒體連結或聯絡表單。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 米白色頁尾 -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <p><strong>🌱 綠色生活・健康未來</strong></p>
+        <p>從今天開始，為自己和地球作出改變。</p>
+      </div>
+
+      <p><a href="#home">返回頁頂 ↑</a></p>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const storageKey = "green-life-actions-v1";
+
+    const actions = Array.from(
+      document.querySelectorAll("[data-action]")
+    );
+
+    const progress = document.querySelector("#action-progress");
+    const progressText = document.querySelector("#progress-text");
+    const resetButton = document.querySelector("#reset-actions");
+    const storageStatus = document.querySelector("#storage-status");
+
+    function updateProgress() {
+      const completed = actions.filter((item) => item.checked).length;
+
+      progress.max = actions.length;
+      progress.value = completed;
+      progress.textContent = `${completed} / ${actions.length}`;
+
+      progressText.textContent =
+        `已完成 ${completed} / ${actions.length} 項`;
+    }
+
+    function saveActions() {
+      const selected = actions
+        .filter((item) => item.checked)
+        .map((item) => item.dataset.action);
+
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(selected));
+        storageStatus.textContent = "清單已儲存在此瀏覽器。";
+      } catch (error) {
+        storageStatus.textContent =
+          "目前無法儲存清單，重新整理後進度可能會消失。";
+      }
+    }
+
+    function loadActions() {
+      try {
+        const stored = JSON.parse(
+          localStorage.getItem(storageKey) || "[]"
+        );
+
+        if (Array.isArray(stored)) {
+          actions.forEach((item) => {
+            item.checked = stored.includes(item.dataset.action);
+          });
+        }
+      } catch (error) {
+        storageStatus.textContent =
+          "無法讀取已儲存的清單，請重新勾選。";
+      }
+
+      updateProgress();
+    }
+
+    actions.forEach((item) => {
+      item.addEventListener("change", () => {
+        updateProgress();
+        saveActions();
+      });
+    });
+
+    resetButton.addEventListener("click", () => {
+      actions.forEach((item) => {
+        item.checked = false;
+      });
+
+      updateProgress();
+      saveActions();
+    });
+
+    loadActions();
+  </script>
+</body>
+</html>
